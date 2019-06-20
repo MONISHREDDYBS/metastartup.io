@@ -1,0 +1,64 @@
+<html>
+    <head>
+        <title>cart</title>
+        <script type="text/javascript" src="react.development.js"></script>
+        <script type="text/javascript" src="react-dom.development.js"></script>
+        <script type="text/javascript" src="babel.min.js"></script>
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="text/babel">
+        var counter=0;
+            class Cart extends React.Component{
+            state={
+                counter1:0,
+                counter2:0,
+                cost:0
+                }
+            add1Button = () => {
+                this.setState({counter1:this.state.counter1+1}),
+                this.setState({cost:this.state.cost+300})
+            }
+            remove1Button = () => {
+                this.setState({counter1:this.state.counter1-1}),
+                this.setState({cost:this.state.cost-300})
+                
+            }
+            add2Button = () => {
+                this.setState({counter2:this.state.counter2+1}),
+                this.setState({cost:this.state.cost+400})
+            }
+            remove2Button = () => {
+                this.setState({counter2:this.state.counter2-1}),
+                this.setState({cost:this.state.cost-400})
+                
+            }
+            
+                render(){
+                    var styleSheet={
+                       height:200,
+                       width:200
+                    }
+                    return(
+                        <div>
+                        <center><h1>your cart</h1>
+                        <h1>click on the T-shirt to add to cart</h1>
+                        <div style={styleSheet}>
+                        <button onClick={this.add1Button}><img src="123.jpg"></img></button>
+                        <button onClick={this.remove1Button}>REMOVE ITEM</button>
+                        </div>
+                        <div style={styleSheet}>
+                         <button onClick={this.add2Button}><img src="1231.jpg"></img></button>
+                        <button onClick={this.remove2Button}>REMOVE ITEM</button>
+                        </div>
+                        <h1>your have added {this.state.counter1} smiley shirt in your cart</h1>
+                        <h1>your have added {this.state.counter2} red shirt in your cart</h1>
+                        <h1>total cost:{this.state.cost}</h1></center>
+                       </div>
+                    )
+                }
+            }
+            var dest=document.getElementById("root");
+            ReactDOM.render(<Cart/>,dest);
+        </script>
+    </body>
